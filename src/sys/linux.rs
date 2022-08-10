@@ -18,7 +18,7 @@ pub(crate) fn scan() -> Result<Vec<Wifi>> {
     let data = String::from_utf8_lossy(&output.stdout);
     let interface = parse_iw_dev(&data)?;
 
-    let output = Command::new("iw")
+    let output = Command::new("sudo iw")
         .env(PATH_ENV, path)
         .arg("dev")
         .arg(interface)
